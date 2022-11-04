@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+}
+
+.header .container {
+    justify-content: space-between;
+}
+
+.header .container p {
+    color: #fff;
+    text-shadow: 0em 0em 0.2em #a000a0, 0em 0em 0.2em #a000a0, 0em 0em 0.2em #a000a0, 0em 0em 0.2em #a000a0, 0em 0em 0.2em #a000a0, 0em 0em 0.2em #a000a0, 0em 0em 0.2em #a000a0;
+    font-size: 50px;
+}
+
+.navBar {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.navBar a {
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 0em 0em 0.2em #a000a0, 0em 0em 0.2em #a000a0, 0em 0em 0.2em #a000a0, 0em 0em 0.2em #a000a0, 0em 0em 0.2em #a000a0, 0em 0em 0.2em #a000a0, 0em 0em 0.2em #a000a0;
+    font-size: 20px;
+}
+
+.banner .container {
+    height: 400px;
+    font-size: 36px;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner {
+    height: fit-content;
+    padding: 40px 0;
+    color: white;
+}
