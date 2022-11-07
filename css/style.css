@@ -100,11 +100,21 @@ body {
     color: #fff;
 }
 
-.footer {
-    background-color: #ff0000;
-    height: 150px;
+
+.box i {
+    color: #fff;
 }
 
-.box i b {
+.box b {
+    color: #fff;
+}
+.footer .container {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer i {
     color: #fff;
 }
