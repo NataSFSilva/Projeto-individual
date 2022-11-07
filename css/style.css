@@ -1,0 +1,103 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+}
+
+.header .container {
+    justify-content: space-between;
+}
+
+.header .container p {
+    color: #fff;
+    text-shadow: 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000;
+    font-size: 50px;
+}
+
+.navBar {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navBar a {
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000;
+    font-size: 40px;
+}
+
+.banner .container {
+    height: 400px;
+    font-size: 36px;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner {
+    margin: auto;
+    background-image: url(../assets/background-image.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.banner p {
+    font-size: 36px;
+    background-color: black;
+    color: #fff;
+    box-shadow: .6em 0 0 #05ffa3;
+    animation: digitando 1.5s;
+}
+
+@keyframes digitando {
+    
+}
+
+.banner span {
+    font-weight: 800;
+}
+
+/* .social {
+    background-color: #fff;
+} */
+
+.social .boxes {
+    display: flex;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    justify-content: space-around;
+}
+
+.box {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: solid 3px #8b008b;
+    border-bottom: solid 3px #8b008b;
+    border-radius: 10%;
+    text-align: center;
+    margin-left: 40px;
+    margin-right: 40px;
+    /* box-shadow: #8b008b; */
+}
+
+.box p {
+    color: #fff;
+}
+
+.footer {
+    background-color: #ff0000;
+    height: 150px;
+}
