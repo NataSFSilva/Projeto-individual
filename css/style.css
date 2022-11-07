@@ -14,6 +14,9 @@ body {
 }
 
 .header .container {
+    display: flex;
+    height: 100px;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -28,13 +31,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    list-style: none;
 }
 
 .navBar a {
     text-decoration: none;
     color: #fff;
     text-shadow: 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000;
-    font-size: 40px;
 }
 
 .banner .container {
@@ -100,4 +103,8 @@ body {
 .footer {
     background-color: #ff0000;
     height: 150px;
+}
+
+.box i b {
+    color: #fff;
 }
