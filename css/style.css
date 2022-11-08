@@ -5,6 +5,7 @@ body {
     padding: 0;
     background-color: black;
     font-family: 'Courier New', Courier, monospace;
+    scroll-behavior: smooth;
 }
 
 .container {
@@ -59,7 +60,7 @@ body {
     font-size: 36px;
     background-color: black;
     color: #fff;
-    box-shadow: .6em 0 0 #05ffa3;
+    box-shadow: .6em 0 0 #000;
     animation: digitando 1.5s;
 }
 
@@ -71,15 +72,21 @@ body {
     font-weight: 800;
 }
 
-/* .social {
-    background-color: #fff;
-} */
+.social {
+    display: flex;
+}
 
 .social .boxes {
     display: flex;
     padding-bottom: 40px;
     padding-top: 40px;
     justify-content: space-around;
+    align-items: center;
+}
+
+.social .container {
+    display: flex;
+    justify-content: center;
 }
 
 .box {
@@ -87,13 +94,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: solid 3px #8b008b;
-    border-bottom: solid 3px #8b008b;
-    border-radius: 10%;
+    border-radius: 2%;
     text-align: center;
     margin-left: 40px;
     margin-right: 40px;
-    /* box-shadow: #8b008b; */
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .box p {
@@ -108,6 +114,22 @@ body {
 .box b {
     color: #fff;
 }
+
+.box h2 {
+    color: #fff;
+    text-shadow: 0em 0em 0.2em #8b008b, 0em 0em 0.2em #8b008b, 0em 0em 0.2em #8b008b, 0em 0em 0.2em #8b008b, 0em 0em 0.2em #8b008b, 0em 0em 0.2em #8b008b, 0em 0em 0.2em #8b008b;
+    font-size: 19px;
+}
+
+.box i b {
+    position: absolute;
+}
+
+.alinhamento {
+    display: flex;
+    align-items: baseline;
+}
+
 .footer .container {
     height: 150px;
     display: flex;
