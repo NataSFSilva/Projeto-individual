@@ -140,3 +140,10 @@ body {
 .footer i {
     color: #fff;
 }
+
+
+.main .boxDados {
+    display: flex;
+    justify-content: center;
+    
+}
