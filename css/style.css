@@ -157,6 +157,16 @@ a {
     box-shadow: inset 0px 0px 50px 10px #000;
 }
 
+.nii {
+    display: flex;
+    height: 400px;
+    background-image: url(../assets/niilismo.png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    box-shadow: inset 0px 0px 50px 10px #000;
+}
+
 .text {
     color: #fff;
     padding-left: 10px;
@@ -165,7 +175,7 @@ a {
     padding-bottom: 20px;
     filter: none;
     opacity: 100%;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
 }
 
 .text h1 {
