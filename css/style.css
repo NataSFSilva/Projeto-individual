@@ -1,6 +1,6 @@
 body {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
     background-color: black;
@@ -8,10 +8,15 @@ body {
     scroll-behavior: smooth;
 }
 
+a {
+    text-decoration: none;
+}
+
 .container {
     width: 80%;
     margin: auto;
     display: flex;
+    justify-content: center;
 }
 
 .header .container {
@@ -36,7 +41,6 @@ body {
 }
 
 .navBar a {
-    text-decoration: none;
     color: #fff;
     text-shadow: 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000;
 }
@@ -54,6 +58,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
+    box-shadow: inset 0px 0px 50px 10px #000;
 }
 
 .banner p {
@@ -61,12 +66,12 @@ body {
     background-color: black;
     color: #fff;
     box-shadow: .6em 0 0 #000;
-    animation: digitando 1.5s;
+    /* animation: digitando 1.5s; */
 }
 
-@keyframes digitando {
+/* @keyframes digitando {
     
-}
+} */
 
 .banner span {
     font-weight: 800;
@@ -116,8 +121,9 @@ body {
 }
 
 .box h2 {
+    font-weight: lighter;
     color: #fff;
-    text-shadow: 0em 0em 0.2em #8b008b, 0em 0em 0.2em #8b008b, 0em 0em 0.2em #8b008b, 0em 0em 0.2em #8b008b, 0em 0em 0.2em #8b008b, 0em 0em 0.2em #8b008b, 0em 0em 0.2em #8b008b;
+    text-shadow: 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000;
     font-size: 19px;
 }
 
@@ -141,9 +147,45 @@ body {
     color: #fff;
 }
 
+.estoic {
+    display: flex;
+    height: 400px;
+    background-image: url(../assets/background-estoic.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    box-shadow: inset 0px 0px 50px 10px #000;
+}
+
+.text {
+    color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    filter: none;
+    opacity: 100%;
+    backdrop-filter: blur(5px);
+}
+
+.text h1 {
+font-weight: lighter;
+color: #fff;
+text-shadow: 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000;
+}
+
+.text p {
+    font-size: 20px;
+}
+
+.main {
+    display: flex;
+    width: 80%;
+    height: 65%;
+    margin: auto;
+}
 
 .main .boxDados {
     display: flex;
     justify-content: center;
-    
 }
