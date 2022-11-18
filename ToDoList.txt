@@ -1,0 +1,35 @@
+Focar mais na funcionalidade, conteúdos abordados em sala e no porque o projeto é importante pra mim.
+
+Chegar em casa:
+-- transformar o site funcional;
+
+-- adicionar área sobre mim;
+
+-- começar documentação, ppt, DER e figma
+
+
+--------------------------------------------------------------------------------------
+
+-- Algoritmos
+    tags script, button, input - functions e alert;
+    Operações Aritméticas, variáveis locais, tag div e innerHTML;
+    interpolação, toFixed() e Atalho Matemático;
+    Estrutura de decisão (if else) e else_if;
+    Variável Global;
+    tag select, img;
+    Operador E/OU;
+    Estrutura de Repetição - While e pré / pós incremento;
+    Estrutura de Repetição - FOR e BREAK;
+    let, const, json, textos, boolean;
+    Vetor e Operador Ternário;
+    Random;
+
+-- Arquitetura Computacional
+
+-- Banco de dados
+    Sistemas de numeração;
+    Lógica Booleana
+
+-- Tecnologia da Informação
+
+-- Pesquisa e Inovação
