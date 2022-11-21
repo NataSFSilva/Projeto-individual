@@ -6,46 +6,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Avisos</title>
+    <title>ÁgoraVita | Ágora</title>
 
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="./dashboards.css">
+    <link rel="stylesheet" href="./agora.css">
     <script src="../js/funcoes.js"></script>
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), atualizarFeed()" style="background-color: #161618;">
+<!-- validarSessao(), -->
+
+<body onload="atualizarFeed()" style="background-color: #000;">
     <!-- <body onload="validarSessao()"> -->
 
     <div class="janela">
 
-
         <div class="header-left">
 
-            <h1>AquaTech</h1>
+            <h1>ÁgoraVita</h1>
 
             <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="cards.html">
-                    <h3>Aquários</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./dashboard.html">
-                    <h3>Gráficos</h3>
-                </a>
+                <h3>Nos vemos novamente, <span id="b_usuario">usuário</span>, porém, não és mais o ser de antes...</h3>
             </div>
 
             <div class="btn-nav">
-                <h3>Mural de Avisos</h3>
+                <h3>Ágora</h3>
+            </div>
+
+            
+            <div class="btn-nav-white">
+                <a href="./dashboard.html">
+                    <h3>Engajamento</h3>
+                </a>
+            </div>
+                        
+            <div class="btn-nav-white">
+                <a href="cards.html">
+                    <h3>Bilioteca</h3>
+                </a>
             </div>
 
             <div class="btn-logout" onclick="limparSessao()">
@@ -58,7 +55,7 @@
 
             <div class="avisos">
                 <div class="container">
-                    <h1>Publicar um aviso</h1>
+                    <h1>O que estás confabulando?</h1>
                     <div class="div-form">
                         <form id="form_postagem" method="post" onsubmit="return publicar()">
                             <label>
@@ -68,9 +65,7 @@
                             </label>
                             <br>
                             <label>
-                                Descrição (máximo de 250 caracteres):
-                                <br>
-                                <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                                <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5" placeholder="Seu texto(máximo de 250 caracteres)"></textarea>
                             </label>
                             <br>
                             <button>Enviar</button>

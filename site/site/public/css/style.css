@@ -33,11 +33,17 @@ a {
 }
 
 .navBar {
-    width: 300px;
+    width: 400px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     list-style: none;
+    padding-inline-start: 0px;
+}
+
+.navBar li {
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .navBar a {
@@ -147,24 +153,31 @@ a {
     color: #fff;
 }
 
-.estoic {
+.infoFilo {
     display: flex;
     height: 400px;
-    background-image: url(../assets/background-estoic.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     box-shadow: inset 0px 0px 50px 10px #000;
 }
 
+.estoic {
+    background-image: url(../assets/background-estoic.jpg);
+}
+
 .nii {
-    display: flex;
-    height: 400px;
     background-image: url(../assets/niilismo.png);
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    box-shadow: inset 0px 0px 50px 10px #000;
+}
+
+.infoBio {
+    display: flex;
+    height: 600px;
+}
+
+.infoBio .container {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .text {
@@ -175,27 +188,50 @@ a {
     padding-bottom: 20px;
     filter: none;
     opacity: 100%;
-    backdrop-filter: blur(10px);
+    background-color: black;
+}
+
+.bio {
+    display: flex;
+    align-items: center;
 }
 
 .text h1 {
-font-weight: lighter;
-color: #fff;
-text-shadow: 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000;
+    font-weight: lighter;
+    color: #fff;
+    text-shadow: 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000;
 }
 
 .text p {
     font-size: 20px;
 }
 
+.login {
+    backdrop-filter: blur(10px);
+}
+
 .main {
     display: flex;
-    width: 80%;
-    height: 65%;
+    width: 100%;
+    height: 70vh;
     margin: auto;
 }
 
-.main .boxDados {
+#boxDados {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: stretch;
+    color: #fff;
+}
+
+#boxDados h1 {
+    font-size: 2.5em;
+    font-weight: unset;
+    text-shadow: 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000;
+}
+
+#boxDados p {
+    font-size: 1.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }

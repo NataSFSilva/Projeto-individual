@@ -17,10 +17,18 @@ var sqlServerConfig = {
     }
 }
 
-// CONEXÃO DO MYSQL WORKBENCH (LOCAL)
+// CONEXÃO DO MYSQL WORKBENCH (LOCAL) - FACULDADE
+// var mySqlConfig = {
+//     host: "localhost",
+//     database: "agoravita",
+//     user: "aluno",
+//     password: "sptech",
+// };
+
+// CONEXÃO DO MYSQL WORKBENCH (LOCAL) - EM CASA
 var mySqlConfig = {
     host: "localhost",
-    database: "SEU_DATABASE",
+    database: "agoravita",
     user: "SEU_USUARIO",
     password: "SUA_SENHA",
 };
