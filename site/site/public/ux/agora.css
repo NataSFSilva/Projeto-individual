@@ -20,10 +20,16 @@ body {
 
 .dash-right .avisos .container .div-form {
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .dash-right .avisos .container .div-form #form_postagem {
   width: 100%;
+}
+
+#form_postagem label h3 {
+  margin: 0;
 }
 
 .dash-right .avisos .div-form label {
@@ -32,27 +38,22 @@ body {
 
 .dash-right .avisos .div-form input {
   width: 100%;
-  border-radius: 5px;
 }
 
 .dash-right .avisos .div-form textarea {
   width: 100%;
-  /* color: #E6005A; */
-  border: 3px solid #e6005a;
+  border: 2px solid #f00;
   background-color: white;
-  border-radius: 5px;
 }
 
 .dash-right .avisos .div-form button {
   cursor: pointer;
-  font-family: "Exo 2", sans-serif;
   border: 0;
-  border-radius: 5px;
   font-weight: 600;
   font-size: 18px;
   padding: 10px 15px;
   color: white;
-  background-color: #e6005a;
+  background-color: #f00;
   width: 120px;
 }
 
@@ -124,23 +125,26 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    border-right: 3px solid #32b9cd;
-    background-color: #212124;
-    /* border: 3px solid pink; */
+    border-right: 3px solid #ff0000;
+    background-color: #000;
+    text-align: center;
+  }
+
+  .header-left h1 {
+    color: #fff;
+    text-shadow: 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000;
+    font-weight: 200;
+    font-size: 55px;
   }
   
   .dash-right {
     display: flex;
     width: 75%;
     height: fit-content;
-    background-color: #161618;
+    background-color: #000;
     position: relative;
     top: 0;
     left: 25%;
-  }
-  
-  .header-left h1 {
-    color: #32b9cd;
   }
   
   .hello {
@@ -150,35 +154,34 @@ body {
   }
   
   .hello h3 {
-    color: #e3b062;
+    color: #fff;
     font-weight: 300;
-    font-size: 1.2rem;
+    font-size: 19px;
   }
   
   .hello h3 span {
-    font-weight: 800;
+    font-weight: 500;
+    text-shadow: 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000;
   }
   
   .btn-nav {
     width: 40%;
-    color: white;
-    background-color: #e6005a;
-    border-radius: 5px;
+    color: #000;
+    background-color: #f00;
     text-align: center;
     padding: 2% 5%;
   }
   
-  .btn-nav-white {
+  .btn-nav-out {
     width: 40%;
-    background-color: white;
-    border: 3px solid #e6005a;
-    border-radius: 5px;
+    background-color: #000;
+    border: 1.5px solid #f00;
     text-align: center;
     padding: 2% 5%;
   }
   
-  .btn-nav-white h3 {
-    color: #e6005a;
+  .btn-nav-out h3 {
+    color: #f00;
     padding: 0;
     margin: 0;
   }
@@ -193,9 +196,8 @@ body {
     margin: 0;
     padding: 0;
     width: 20%;
-    background-color: #32b9cd;
-    color: white;
-    border-radius: 10px;
+    background-color: #f00;
+    color: #000;
     text-align: center;
     padding: 10px 15px;
     margin-bottom: 100px;

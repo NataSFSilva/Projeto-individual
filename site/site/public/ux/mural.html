@@ -25,7 +25,7 @@
             <h1>ÁgoraVita</h1>
 
             <div class="hello">
-                <h3>Nos vemos novamente, <span id="b_usuario">usuário</span>, porém, não és mais o ser de antes...</h3>
+                <h3>Nos vemos novamente, <span id="b_usuario">usuário</span>, porém, já não és mais o mesmo...</h3>
             </div>
 
             <div class="btn-nav">
@@ -33,13 +33,13 @@
             </div>
 
             
-            <div class="btn-nav-white">
+            <div class="btn-nav-out">
                 <a href="./dashboard.html">
                     <h3>Engajamento</h3>
                 </a>
             </div>
                         
-            <div class="btn-nav-white">
+            <div class="btn-nav-out">
                 <a href="cards.html">
                     <h3>Bilioteca</h3>
                 </a>
@@ -55,12 +55,11 @@
 
             <div class="avisos">
                 <div class="container">
-                    <h1>O que estás confabulando?</h1>
+                    <h2>O que estás confabulando?</h2>
                     <div class="div-form">
                         <form id="form_postagem" method="post" onsubmit="return publicar()">
                             <label>
-                                Título:
-                                <br>
+                                <h3>Título:</h3>
                                 <input name="titulo" id="titulo" maxlength="100" type="text">
                             </label>
                             <br>
@@ -68,10 +67,10 @@
                                 <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5" placeholder="Seu texto(máximo de 250 caracteres)"></textarea>
                             </label>
                             <br>
-                            <button>Enviar</button>
+                            <button>Publicar</button>
                         </form>
                     </div>
-                    <h1>Mural de Avisos</h1>
+                    <h1>Feed</h1>
                     <div class="div-results">
                         <div id="feed_container" class="feed-container">
                         </div>
