@@ -92,7 +92,7 @@
 
             <!-- AGUARDAR -->
             <!-- <div id="div_aguardar" class="div-aguardar">
-                <img src="./assets/aguarde-pink3.gif" id="img_aguarde">
+                <img src="../assets/carregamento.gif" id="img_aguarde">
             </div>  -->
 
         </div>
@@ -181,7 +181,7 @@
     }
 
     function atualizarFeed() {
-        //aguardar();
+        aguardar();
         fetch("/avisos/listar").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {

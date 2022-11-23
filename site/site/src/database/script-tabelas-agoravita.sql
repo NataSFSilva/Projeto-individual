@@ -10,20 +10,18 @@ create table usuario (
 );
 
 create table publicacao (
-	id int auto_increment,
+	idPub int auto_increment,
     titulo varchar(100),
     texto varchar(150),
-    fkUsuario char(6),
+    fkUsuario int,
     foreign key (fkUsuario) references usuario(id),
-    primary key (idPublicacao, fkUsuario)
+    primary key (idPub, fkUsuario)
 );
 
-create table filosofos (
+create table sorteioFrases (
 	id int auto_increment,
-    frase varchar(100),
-    fonte varchar(150),
-    fkUsuario char(6),
+    fkUsuario int,
+    dtSorteio datetime,
     foreign key (fkUsuario) references usuario(id),
-    primary key (idPublicacao, fkUsuario)
+    primary key (id, fkUsuario)
 );
-
