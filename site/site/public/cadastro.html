@@ -26,7 +26,7 @@
             </ul>
         </div>
     </div>
-    <div class="main">
+    <div class="main cad">
         <div class="container">
             <div id="boxDados">
                 <h1>Cadastro</h1>
@@ -38,10 +38,12 @@
                 <input type="password" id="senha_input">
                 <p>Confirmar senha:</p>
                 <input type="password" id="confirmacao_senha_input">
+                <br>
                 <button class="btn" onclick="cadastrar()">Cadastrar</button>
-            </div>
-            <div id="div_aguardar" class="loading-div">
-                <img src="../assets/carregamento.gif" width="" id="loading-gif">
+                
+                <div id="div_aguardar" class="loading-div" style="display: none;">
+                    <img src="../assets/carregamento.gif" width="" id="loading-gif">
+                </div>
             </div>
         </div>
     </div>
@@ -68,9 +70,6 @@
 
             finalizarAguardar();
             return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
         }
 
         // Enviando o valor da nova input

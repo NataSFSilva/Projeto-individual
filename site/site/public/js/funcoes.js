@@ -27,7 +27,7 @@ function limparSessao() {
 // carregamento (loading)
 function aguardar() {
     var divAguardar = document.getElementById("div_aguardar");
-    divAguardar.style.display = "flex";
+    divAguardar.style.display = "block";
 }
 
 function finalizarAguardar(texto) {
@@ -51,4 +51,3 @@ function fecharModal() {
     var divModal = document.getElementById("div_modal");
     divModal.style.display = "none";
 }
-

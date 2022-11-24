@@ -206,6 +206,8 @@ a {
     font-size: 20px;
 }
 
+/* Login e cadastro */
+
 .login {
     backdrop-filter: blur(10px);
 }
@@ -217,11 +219,26 @@ a {
     margin: auto;
 }
 
+.cad {
+    background-image: url();
+}
+
+.login {
+    background-image: url(https://images.unsplash.com/photo-1555440186-7f0a5a6a5537?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMGFjYWRlbWlhfGVufDB8fDB8fA%3D%3D&w=1000&q=80);
+}
+
 #boxDados {
+    background-color: #000;
+    padding: 50px;
+    padding-top: 10px;
     display: flex;
+    align-content: center;
+    color: #fff;
     flex-direction: column;
     align-items: stretch;
-    color: #fff;
+    width: 235px;
+    height: 420px;
+    justify-content: space-between;
 }
 
 #boxDados h1 {
@@ -234,4 +251,32 @@ a {
     font-size: 1.5em;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
+}
+
+#boxDados h1, .loading-div {
+    align-self: center;
+}
+
+#boxDados input {
+    opacity: 1;
+    background-color: #000;
+    border-radius: 0%;
+    font-family: monospace;
+    border: 0;
+    border-bottom: 2px solid red;
+    color: #fff;
+    outline: 0;
+}
+
+#boxDados input:focus {
+    font-family: monospace;
+    color: #fff;
+    border: 0;
+    border-bottom: 2px solid red;
+    /* box-shadow: 0px 0px 20px 2.5px #f00; */
+}
+
+.dados {
+    display: flex;
+    flex-direction: column;
 }
