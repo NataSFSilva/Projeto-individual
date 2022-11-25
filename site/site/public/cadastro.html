@@ -30,17 +30,24 @@
         <div class="container">
             <div id="boxDados">
                 <h1>Cadastro</h1>
-                <p>Nome de usuário:</p>
-                <input type="text" id="nome_input">
-                <p>Email:</p>
-                <input type="text" id="email_input">
-                <p>Senha:</p>
-                <input type="password" id="senha_input">
-                <p>Confirmar senha:</p>
-                <input type="password" id="confirmacao_senha_input">
+                <div id="boxes">                    
+                    <div id="box">
+                        <p>Nome de usuário:</p>
+                        <input type="text" id="nome_input">
+                        <p>Email:</p>
+                        <input type="text" id="email_input">
+                    </div>
+                    <div id="box">                    
+                        <p>Senha:</p>
+                        <input type="password" id="senha_input">
+                        <p>Confirmar senha:</p>
+                        <input type="password" id="confirmacao_senha_input">
+                    </div>
+                </div>
                 <br>
                 <button class="btn" onclick="cadastrar()">Cadastrar</button>
-                
+                <p class="anchor">Já possui uma conta? <a href="login.html">Faça login</a></p>
+
                 <div id="div_aguardar" class="loading-div" style="display: none;">
                     <img src="../assets/carregamento.gif" width="" id="loading-gif">
                 </div>
