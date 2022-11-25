@@ -203,3 +203,33 @@ body {
   margin-bottom: 100px;
   cursor: pointer;
 }
+
+.div_sorteio {
+  display: flex;
+  height: 100vh;
+  width: 80vw;
+  align-items: center;
+  justify-content: flex-end;  
+}
+
+.sorteio {
+  display: flex;
+    width: 535px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sorteio h3 {
+  color: #fff;
+  text-align: center;
+}
+
+.sorteio .fortuna {
+  color: #000;
+  background-color: #F00;
+  height: 45px;
+  width: 125px;
+  border-radius: 10px;
+  align-self: center;
+  cursor: pointer;
+}

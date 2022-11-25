@@ -13,10 +13,9 @@
     <script src="../js/funcoes.js"></script>
 </head>
 
-<!-- validarSessao(), -->
+<!-- validarSessao(),  -->
 
 <body onload="atualizarFeed()" style="background-color: #000;">
-    <!-- <body onload="validarSessao()"> -->
 
     <div class="janela">
 
@@ -64,7 +63,7 @@
                             </label>
                             <br>
                             <label>
-                                <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5" placeholder="Seu texto(máximo de 250 caracteres)"></textarea>
+                                <textarea name="texto" id="textarea_texto" maxlength="250" rows="5" placeholder="Seu texto(máximo de 250 caracteres)"></textarea>
                             </label>
                             <br>
                             <button>Publicar</button>
@@ -77,18 +76,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-            <!-- MODAL -->
-            <!-- <div id="div_modal" class="div-modal">
-                <div id="modal_backdrop" onclick="fecharModal()" class="modal-backdrop">
-                </div>
-                <div id="modal_container" class="modal-container">
-                    <button class="btn-fechar-modal" onclick="fecharModal()">X</button>
-                </div>
-            </div> -->
 
             <!-- AGUARDAR -->
             <!-- <div id="div_aguardar" class="div-aguardar">
@@ -118,7 +105,7 @@
 
         var corpo = {
             titulo: form_postagem.titulo.value,
-            descricao: form_postagem.descricao.value
+            texto: form_postagem.texto.value
         }
 
         fetch(`/avisos/publicar/${idUsuario}`, {
@@ -150,39 +137,9 @@
 
     }
 
-    function editar(idAviso) {
-        sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
-        console.log("cliquei em editar - " + idAviso);
-        window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
-        window.location = "/dashboard/edicao-aviso.html"
-
-    }
-
-    function deletar(idAviso) {
-        console.log("Criar função de apagar post escolhido - ID" + idAviso);
-        fetch(`/avisos/deletar/${idAviso}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(function (resposta) {
-
-            if (resposta.ok) {
-                window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                window.location = "/dashboard/mural.html"
-            } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
-            } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
-    }
-
     function atualizarFeed() {
         aguardar();
-        fetch("/avisos/listar").then(function (resposta) {
+        fetch("/feed/listar").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     var feed = document.getElementById("feed_container");
@@ -205,42 +162,29 @@
                         var spanID = document.createElement("span");
                         var spanTitulo = document.createElement("span");
                         var spanNome = document.createElement("span");
-                        var divDescricao = document.createElement("div");
+                        var divTexto = document.createElement("div");
                         var divButtons = document.createElement("div");
-                        var btnEditar = document.createElement("button");
                         var btnDeletar = document.createElement("button");
 
 
-                        spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
+                        spanID.innerHTML = "ID: <b>" + publicacao.idFeed + "</b>";
                         spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
-                        divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
-                        btnEditar.innerHTML = "Editar";
-                        btnDeletar.innerHTML = "Deletar";
+                        divTexto.innerHTML = "Texto: <b>" + publicacao.texto + "</b>";
 
                         divPublicacao.className = "publicacao";
-                        spanTitulo.id = "inputNumero" + publicacao.idAviso;
+                        spanTitulo.id = "inputNumero" + publicacao.idFeed;
                         spanNome.className = "publicacao-nome";
                         spanTitulo.className = "publicacao-titulo";
-                        divDescricao.className = "publicacao-descricao";
+                        divTexto.className = "publicacao-texto";
 
                         divButtons.className = "div-buttons"
-
-                        btnEditar.className = "publicacao-btn-editar"
-                        btnEditar.id = "btnEditar" + publicacao.idAviso;
-                        btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
-
-                        btnDeletar.className = "publicacao-btn-editar"
-                        btnDeletar.id = "btnDeletar" + publicacao.idAviso;
-                        btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
-
+                        
                         divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(spanNome);
                         divPublicacao.appendChild(spanTitulo);
-                        divPublicacao.appendChild(divDescricao);
+                        divPublicacao.appendChild(divTexto);
                         divPublicacao.appendChild(divButtons);
-                        divButtons.appendChild(btnEditar);
-                        divButtons.appendChild(btnDeletar);
                         feed.appendChild(divPublicacao);
                     }
 
@@ -262,8 +206,8 @@
 
         var divResultado = document.getElementById("div_feed");
 
-        divResultado.appendChild(document.createTextNode(formulario.get("descricao")));
-        divResultado.innerHTML = formulario.get("descricao");
+        divResultado.appendChild(document.createTextNode(formulario.get("texto")));
+        divResultado.innerHTML = formulario.get("texto");
 
         finalizarAguardar();
 

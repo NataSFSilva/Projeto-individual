@@ -33,7 +33,7 @@ a {
 }
 
 .navBar {
-    width: 400px;
+    width: 430px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -315,4 +315,5 @@ a {
     width: 90px;
     border-radius: 10px;
     align-self: center;
+    cursor: pointer;
 }
