@@ -62,22 +62,22 @@
 
 function sortear() {
     var mr_filo = Number((Math.random() * 2).toFixed(0));
-    var mt_estoic = Number((Math.random() * 2).toFixed(0));
-    var mt_niil = Number((Math.random() * 4).toFixed(0));
-    var mt_exist = Number((Math.random() * 3).toFixed(0));
+    var mr_estoic = Number((Math.random() * 2).toFixed(0));
+    var mr_niil = Number((Math.random() * 4).toFixed(0));
+    var mr_exist = Number((Math.random() * 3).toFixed(0));
     div_msg.innerHTML = ``;
 
     console.log(mr_filo)
-    // console.log(mt_estoic)
-    // console.log(mt_niil)
-    // console.log(mt_exist)
+    // console.log(mr_estoic)
+    // console.log(mr_niil)
+    // console.log(mr_exist)
 
     if (mr_filo == 0) {
-        div_msg.innerHTML += `"${vt_frases[mr_filo].frase[mt_estoic]}" -${vt_frases[mr_filo].autor[mt_estoic]}`;
+        div_msg.innerHTML += `"${vt_frases[mr_filo].frase[mr_estoic]}" -${vt_frases[mr_filo].autor[mr_estoic]}`;
     } else if (mr_filo == 1) {
-        div_msg.innerHTML += `"${vt_frases[mr_filo].frase[mt_niil]}" -${vt_frases[mr_filo].autor[mt_niil]}`;
+        div_msg.innerHTML += `"${vt_frases[mr_filo].frase[mr_niil]}" -${vt_frases[mr_filo].autor[mr_niil]}`;
     } else if (mr_filo == 2) {
-        div_msg.innerHTML += `"${vt_frases[mr_filo].frase[mt_exist]}" -${vt_frases[mr_filo].autor[mt_exist]}`;
+        div_msg.innerHTML += `"${vt_frases[mr_filo].frase[mr_exist]}" -${vt_frases[mr_filo].autor[mr_exist]}`;
     }
 }
 </script>

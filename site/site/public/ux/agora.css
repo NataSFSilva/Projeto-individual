@@ -209,14 +209,16 @@ body {
   height: 100vh;
   width: 80vw;
   align-items: center;
-  justify-content: flex-end;  
+  justify-content: flex-end;
 }
 
 .sorteio {
   display: flex;
-    width: 535px;
-    flex-direction: column;
-    align-items: center;
+  width: 535px;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 3px solid #F00;
+  border-radius: 3px solid #F00;
 }
 
 .sorteio h3 {

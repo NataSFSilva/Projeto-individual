@@ -12,6 +12,12 @@ a {
     text-decoration: none;
 }
 
+.header {
+    position: fixed;
+    background-color: #000;
+    width: 100%;
+}
+
 .container {
     width: 80%;
     margin: auto;
@@ -143,7 +149,7 @@ a {
 }
 
 .footer .container {
-    height: 150px;
+    height: 99px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -193,7 +199,9 @@ a {
 
 .bio {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .text h1 {
@@ -215,7 +223,7 @@ a {
 .main {
     display: flex;
     width: 100%;
-    height: 70vh;
+    height: 75vh;
     margin: auto;
 }
 
@@ -241,7 +249,7 @@ a {
     flex-direction: column;
     align-items: stretch;
     width: 505px;
-    height: 370px;
+    height: 430px;
     justify-content: space-between;
 }
 
