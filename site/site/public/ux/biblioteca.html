@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/icon-agoravita.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +16,6 @@
 <!-- validarSessao(), -->
 
 <body onload="atualizarFeed()" style="background-color: #000;">
-    <!-- <body onload="validarSessao()"> -->
 
     <div class="janela">
 
@@ -44,6 +43,12 @@
                     <h3>Consultar Tykhe</h3>
                 </a>
             </div>
+            
+            <div class="btn-nav-out">
+                <a href="./estatisticas.html">
+                    <h3>Estatísticas</h3>
+                </a>
+            </div>
 
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
@@ -52,49 +57,19 @@
         </div>
 
         <div class="dash-right">
-
-            <div class="avisos">
+    
+            <div class="div_biblioteca">
                 <div class="container">
                     <h2>O que estás confabulando?</h2>
-                    <div class="div-form">
-                        <form id="form_postagem" method="post" onsubmit="return publicar()">
-                            <label>
-                                <h3>Título:</h3>
-                                <input name="titulo" id="titulo" maxlength="100" type="text">
-                            </label>
-                            <br>
-                            <label>
-                                <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5" placeholder="Seu texto(máximo de 250 caracteres)"></textarea>
-                            </label>
-                            <br>
-                            <button>Publicar</button>
-                        </form>
+                    <div class="artigo">                    
                     </div>
-                    <h1>Feed</h1>
-                    <div class="div-results">
-                        <div id="feed_container" class="feed-container">
-                        </div>
+                    <div class="artigo">                    
+                    </div>
+                    <div class="artigo">                    
                     </div>
                 </div>
+    
             </div>
-
-
-
-
-            <!-- MODAL -->
-            <!-- <div id="div_modal" class="div-modal">
-                <div id="modal_backdrop" onclick="fecharModal()" class="modal-backdrop">
-                </div>
-                <div id="modal_container" class="modal-container">
-                    <button class="btn-fechar-modal" onclick="fecharModal()">X</button>
-                </div>
-            </div> -->
-
-            <!-- AGUARDAR -->
-            <!-- <div id="div_aguardar" class="div-aguardar">
-                <img src="../assets/carregamento.gif" id="img_aguarde">
-            </div>  -->
-
         </div>
     </div>
 

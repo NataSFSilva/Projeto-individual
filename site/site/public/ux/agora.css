@@ -5,26 +5,26 @@ body {
   font-family: 'Courier New', Courier, monospace;
 }
 
-.dash-right .avisos {
+.dash-right .postagens {
   width: 100%;
   /* border: 3px solid pink; */
   color: rgb(216, 216, 216);
   font-family: "Exo 2", sans-serif;
 }
 
-.dash-right .avisos .container {
+.dash-right .postagens .container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.dash-right .avisos .container .div-form {
+.dash-right .postagens .container .div-form {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.dash-right .avisos .container .div-form #form_postagem {
+.dash-right .postagens .container .div-form #form_postagem {
   width: 100%;
 }
 
@@ -32,21 +32,11 @@ body {
   margin: 0;
 }
 
-.dash-right .avisos .div-form label {
+.dash-right .postagens .div-form label {
   width: 100%;
 }
 
-.dash-right .avisos .div-form input {
-  width: 100%;
-}
-
-.dash-right .avisos .div-form textarea {
-  width: 100%;
-  border: 2px solid #f00;
-  background-color: white;
-}
-
-.dash-right .avisos .div-form button {
+.dash-right .postagens .div-form button {
   cursor: pointer;
   border: 0;
   font-weight: 600;
@@ -55,19 +45,6 @@ body {
   color: white;
   background-color: #f00;
   width: 120px;
-}
-
-.publicacao-btn-editar {
-  cursor: pointer;
-  font-family: "Exo 2", sans-serif;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 14px;
-  padding: 5px 8px;
-  color: white;
-  background-color: #e6005a;
-  width: 80px;
 }
 
 .publicacao {
@@ -204,6 +181,24 @@ body {
   cursor: pointer;
 }
 
+/* Feed */
+
+.feed_text {
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  border-radius: 0;
+  border: 2px solid #fff;
+  margin-bottom: 5px;
+}
+
+.feed_text:focus {
+  border-radius: 0;
+  border: 2px solid #f00;
+}
+
+/* Sorteio de frases */
+
 .div_sorteio {
   display: flex;
   height: 100vh;
@@ -217,13 +212,61 @@ body {
   width: 535px;
   flex-direction: column;
   align-items: center;
-  border-bottom: 3px solid #F00;
-  border-radius: 3px solid #F00;
+  padding: 30px;
+  box-shadow: 0 0 100px 25px #f00;
 }
+
 
 .sorteio h3 {
   color: #fff;
   text-align: center;
+}
+
+.sorteio .fortuna {
+  color: #000;
+  background-color: #F00;
+  height: 45px;
+  width: 125px;
+  border-radius: 10px;
+  align-self: center;
+  cursor: pointer;
+  font-weight: 1000;
+}
+
+/* biblioteca */
+
+.div_biblioteca {
+  display: flex;
+  height: 100vh;
+  width: 80vw;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.div_biblioteca .container {
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.div_biblioteca h2 {
+  color: #fff;
+  text-align: center;
+}
+
+.artigo {
+  display: flex;
+  width: 100%;
+  height: 135px;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 3px solid #f00;
+  border-right: 3px solid #f00;
+  margin-bottom: 10px;
 }
 
 .sorteio .fortuna {

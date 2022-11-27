@@ -17,67 +17,107 @@
 </html>
 <script>
     var vt_frases = [
-    estoicismo = {
+    frases = {
         frase: [
             'De todas as coisas existentes algumas estão sob o nosso poder e outras não.',
             'Não perca mais tempo discutindo sobre o que um bom homem deve ser. Seja um.',
-            'O pensamento deve ser mais forte do que a matéria, e a vontade mais poderosa do que o sofrimento físico e moral.'
-            ],
-        autor: [
-            'Epicteto, "Enchiridion"',
-            'Marco Aurélio, "Meditações"',
-            'Zenão de Cítio'
-            ]
-    }, niilismo = {                        
-        frase: [
+            'O pensamento deve ser mais forte do que a matéria, e a vontade mais poderosa do que o sofrimento físico e moral.',
             'Não há fatos eternos, como não há verdades absolutas.',
             'O destino baralha as cartas, e nós jogamos.',
             'E se alguma virtude há em mim; é não temer a nenhuma proibição.',
             'Quanto mais elevado é o espírito mais ele sofre.',
-            'Eis a minha formula para a grandeza do homem: "Amor Fati", não querer nada de diferente do que é, nem no futuro, nem no passado, nem por toda a eternidade.'
-            ],
-        autor: [
-            'Friedrich Nietzsche, "Humano, Demasiado Humano."',
-            'Arthur Schopenhauer, "Aforismos sobre a Sabedoria da Vida"',
-            'Friedrich Nietzsche, "Assim Falou Zaratustra"',
-            'Arthur Schopenhauer, "As Dores do Mundo"',
-            'Friedrich Nietzsche, "Ecce Homo"'
-            ]
-    }, existencialismo = {
-        frase: [
+            'Eis a minha formula para a grandeza do homem: "Amor Fati", não querer nada de diferente do que é, nem no futuro, nem no passado, nem por toda a eternidade.',
             'A existência precede e comanda a essência.',
             'Um ser que se habitua a tudo, esta é a melhor definição que podemos dar do homem.',
             'O homem está condenado a ser livre, condenado porque ele não criou a si, e ainda assim é livre. Pois tão logo é atirado ao mundo, torna-se responsável por tudo que faz.',
             ' Se o Diabo não existe, mas o homem o criou, ele o criou a partir de sua própria imagem e semelhança.'
-    ],
+            ],
         autor: [
+            'Epicteto, "Enchiridion"',
+            'Marco Aurélio, "Meditações"',
+            'Zenão de Cítio',
+            'Friedrich Nietzsche, "Humano, Demasiado Humano."',
+            'Arthur Schopenhauer, "Aforismos sobre a Sabedoria da Vida"',
+            'Friedrich Nietzsche, "Assim Falou Zaratustra"',
+            'Arthur Schopenhauer, "As Dores do Mundo"',
+            'Friedrich Nietzsche, "Ecce Homo"',
             'Jean-Paul Sartre, "O Ser e o Nada"',
             '"Fiódor Dostoiévski, ""',
             'Jean-Paul Sartre, "O Ser e o Nada"',
             '"Fiódor Dostoiévski, ""'
-        ]
+            ]
     }
+    // estoicismo = {
+    //     frase: [
+    //         'De todas as coisas existentes algumas estão sob o nosso poder e outras não.',
+    //         'Não perca mais tempo discutindo sobre o que um bom homem deve ser. Seja um.',
+    //         'O pensamento deve ser mais forte do que a matéria, e a vontade mais poderosa do que o sofrimento físico e moral.'
+    //         ],
+    //     autor: [
+    //         'Epicteto, "Enchiridion"',
+    //         'Marco Aurélio, "Meditações"',
+    //         'Zenão de Cítio'
+    //         ]
+    // }, niilismo = {                        
+    //     frase: [
+    //         'Não há fatos eternos, como não há verdades absolutas.',
+    //         'O destino baralha as cartas, e nós jogamos.',
+    //         'E se alguma virtude há em mim; é não temer a nenhuma proibição.',
+    //         'Quanto mais elevado é o espírito mais ele sofre.',
+    //         'Eis a minha formula para a grandeza do homem: "Amor Fati", não querer nada de diferente do que é, nem no futuro, nem no passado, nem por toda a eternidade.'
+    //         ],
+    //     autor: [
+    //         'Friedrich Nietzsche, "Humano, Demasiado Humano."',
+    //         'Arthur Schopenhauer, "Aforismos sobre a Sabedoria da Vida"',
+    //         'Friedrich Nietzsche, "Assim Falou Zaratustra"',
+    //         'Arthur Schopenhauer, "As Dores do Mundo"',
+    //         'Friedrich Nietzsche, "Ecce Homo"'
+    //         ]
+    // }, existencialismo = {
+    //     frase: [
+    //         'A existência precede e comanda a essência.',
+    //         'Um ser que se habitua a tudo, esta é a melhor definição que podemos dar do homem.',
+    //         'O homem está condenado a ser livre, condenado porque ele não criou a si, e ainda assim é livre. Pois tão logo é atirado ao mundo, torna-se responsável por tudo que faz.',
+    //         ' Se o Diabo não existe, mas o homem o criou, ele o criou a partir de sua própria imagem e semelhança.'
+    // ],
+    //     autor: [
+    //         'Jean-Paul Sartre, "O Ser e o Nada"',
+    //         '"Fiódor Dostoiévski, ""',
+    //         'Jean-Paul Sartre, "O Ser e o Nada"',
+    //         '"Fiódor Dostoiévski, ""'
+    //     ]
+    // }
 ]
 
-
+vt_filo = []
 function sortear() {
-    var mr_filo = Number((Math.random() * 2).toFixed(0));
-    var mr_estoic = Number((Math.random() * 2).toFixed(0));
-    var mr_niil = Number((Math.random() * 4).toFixed(0));
-    var mr_exist = Number((Math.random() * 3).toFixed(0));
-    div_msg.innerHTML = ``;
+    var mr_filo = Number((Math.random() * 11).toFixed(0));
+    var mr_filoAlternate = Number((Math.random() * 11).toFixed(0));
 
+    vt_filo.push(mr_filo)
+    
+    div_msg.innerHTML = `"${vt_frases[0].frase[mr_filo]}" -${vt_frases[0].autor[mr_filo]}`;
     console.log(mr_filo)
-    // console.log(mr_estoic)
-    // console.log(mr_niil)
-    // console.log(mr_exist)
 
-    if (mr_filo == 0) {
-        div_msg.innerHTML += `"${vt_frases[mr_filo].frase[mr_estoic]}" -${vt_frases[mr_filo].autor[mr_estoic]}`;
-    } else if (mr_filo == 1) {
-        div_msg.innerHTML += `"${vt_frases[mr_filo].frase[mr_niil]}" -${vt_frases[mr_filo].autor[mr_niil]}`;
-    } else if (mr_filo == 2) {
-        div_msg.innerHTML += `"${vt_frases[mr_filo].frase[mr_exist]}" -${vt_frases[mr_filo].autor[mr_exist]}`;
-    }
+    // var mr_filo = Number((Math.random() * 2).toFixed(0));
+    // var mr_estoic = Number((Math.random() * 2).toFixed(0));
+    // var mr_niil = Number((Math.random() * 4).toFixed(0));
+    // var mr_exist = Number((Math.random() * 3).toFixed(0));
+    // div_msg.innerHTML = ``;
+
+    // // console.log(mr_estoic)
+    // // console.log(mr_niil)
+    // // console.log(mr_exist)
+    
+    // if (mr_filo == 0) {
+    //     console.log(`Filosofia: estoicismo ${mr_filo}`)
+    //     div_msg.innerHTML += `"${vt_frases[mr_filo].frase[mr_estoic]}" -${vt_frases[mr_filo].autor[mr_estoic]}`;
+    // } else if (mr_filo == 1) {
+    //     console.log(`Filosofia: niilismo ${mr_filo}`)
+    //     div_msg.innerHTML += `"${vt_frases[mr_filo].frase[mr_niil]}" -${vt_frases[mr_filo].autor[mr_niil]}`;
+    // } else if (mr_filo == 2) {
+    //     console.log(`Filosofia: existencialismo ${mr_filo}`)
+    //     div_msg.innerHTML += `"${vt_frases[mr_filo].frase[mr_exist]}" -${vt_frases[mr_filo].autor[mr_exist]}`;
+    // }
 }
 </script>

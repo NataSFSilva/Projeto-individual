@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/icon-agoravita.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,6 +43,12 @@
                     <h3>Consultar Tykhe</h3>
                 </a>
             </div>
+            
+            <div class="btn-nav-out">
+                <a href="./estatisticas.html">
+                    <h3>Estatísticas</h3>
+                </a>
+            </div>
 
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
@@ -52,18 +58,18 @@
 
         <div class="dash-right">
 
-            <div class="avisos">
+            <div class="postagens">
                 <div class="container">
                     <h2>O que estás confabulando?</h2>
                     <div class="div-form">
                         <form id="form_postagem" method="post" onsubmit="return publicar()">
                             <label>
                                 <h3>Título:</h3>
-                                <input name="titulo" id="titulo" maxlength="100" type="text">
+                                <input  class="feed_text" name="titulo" id="titulo" maxlength="100" type="text">
                             </label>
                             <br>
                             <label>
-                                <textarea name="texto" id="textarea_texto" maxlength="250" rows="5" placeholder="Seu texto(máximo de 250 caracteres)"></textarea>
+                                <textarea class="feed_text" name="texto" id="textarea_texto" maxlength="250" rows="5" placeholder="Seu texto(máximo de 250 caracteres)"></textarea>
                             </label>
                             <br>
                             <button>Publicar</button>
@@ -120,7 +126,7 @@
 
             if (resposta.ok) {
                 window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-                window.location = "/dashboard/mural.html";
+                window.location = "/ux/feed.html";
                 limparFormulario();
                 finalizarAguardar();
             } else if (resposta.status == 404) {
@@ -164,7 +170,6 @@
                         var spanNome = document.createElement("span");
                         var divTexto = document.createElement("div");
                         var divButtons = document.createElement("div");
-                        var btnDeletar = document.createElement("button");
 
 
                         spanID.innerHTML = "ID: <b>" + publicacao.idFeed + "</b>";
