@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ÁgoraVita | Ágora</title>
+    <title>ÁgoraVita | Sorteio</title>
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="./agora.css">
@@ -14,12 +14,14 @@
 </head>
 
 <!-- validarSessao(), -->
-<body onload="" style="background-color: #000;">
+<body onload="verificarFrase()" style="background-color: #000;">
 
     <div class="janela">
 
         <div class="header-left">
 
+            <img src="../assets/icon-agoravita.png">
+            
             <h1>ÁgoraVita</h1>
 
             <div class="hello">
@@ -59,10 +61,15 @@
 
         <div class="div_sorteio">
             <div class="container">                
-                <div class="sorteio">
-                <img src="../assets/GreekMyth-fortuna.png" alt="" style="width: 200px;">
+                <div class="sorteio" id="sorte">
+                <img src="../assets/GreekMyth-fortuna.png" style="width: 200px;">
                 <h3>A deusa Tykhe, a sorte, seleciona a ti palavras de inspiração:</h3>
-                    <button class="fortuna">Sortear frase do dia</button>
+                    <button class="fortuna" onclick="mostrarSorte()">Sortear frase do dia</button>
+                </div>
+                <div class="resultado" id="result">
+                    <img src="" id="image" width="170px" style="border-bottom: 3px solid #f00; border-right: 3px solid #f00;">
+                    <span id="frase">
+                    </span>
                 </div>
             </div>
 
@@ -92,7 +99,7 @@
             descricao: form_postagem.descricao.value
         }
 
-        fetch(`/avisos/publicar/${idUsuario}`, {
+        fetch(`/feed/publicar/${idUsuario}`, {
             method: "post",
             headers: {
                 "Content-Type": "application/json"
@@ -119,5 +126,99 @@
 
         return false;
 
+    }
+
+    
+    var frases = {
+        frase: [
+            'De todas as coisas existentes algumas estão sob o nosso poder e outras não.',
+            'Não perca mais tempo discutindo sobre o que um bom homem deve ser. Seja um.',
+            'O pensamento deve ser mais forte do que a matéria, e a vontade mais poderosa do que o sofrimento físico e moral.',
+            'Não há fatos eternos, como não há verdades absolutas.',
+            'O destino baralha as cartas, e nós jogamos.',
+            'E se alguma virtude há em mim; é não temer a nenhuma proibição.',
+            'Quanto mais elevado é o espírito mais ele sofre.',
+            'Eis a minha formula para a grandeza do homem: "Amor Fati", não querer nada de diferente do que é, nem no futuro, nem no passado, nem por toda a eternidade.',
+            'A existência precede e comanda a essência.',
+            'Um ser que se habitua a tudo, esta é a melhor definição que podemos dar do homem.',
+            'O homem está condenado a ser livre, condenado porque ele não criou a si, e ainda assim é livre. Pois tão logo é atirado ao mundo, torna-se responsável por tudo que faz.',
+            ' Se o Diabo não existe, mas o homem o criou, ele o criou a partir de sua própria imagem e semelhança.'
+            ],
+        autor: [
+            'Epicteto, "Enchiridion"',
+            'Marco Aurélio, "Meditações"',
+            'Zenão de Cítio',
+            'Friedrich Nietzsche, "Humano, Demasiado Humano."',
+            'Arthur Schopenhauer, "Aforismos sobre a Sabedoria da Vida"',
+            'Friedrich Nietzsche, "Assim Falou Zaratustra"',
+            'Arthur Schopenhauer, "As Dores do Mundo"',
+            'Friedrich Nietzsche, "Ecce Homo"',
+            'Jean-Paul Sartre, "O Ser e o Nada"',
+            'Fiódor Dostoiévski',
+            'Jean-Paul Sartre, "O Ser e o Nada"',
+            'Fiódor Dostoiévski'
+            ]
+    }
+
+    function mostrarSorte() {
+        sessionStorage.clear();
+        sorte.style.display = 'none';
+        result.style.display = 'flex';
+
+        var mr_filo = Number((Math.random() * 11).toFixed(0));
+
+        frase.innerHTML = `<h3>"${frases.frase[mr_filo]}"</h3><b>–${frases.autor[mr_filo]}</b>`;
+
+        sessionStorage.FRASE = frases.frase[mr_filo];
+        sessionStorage.AUTOR = frases.autor[mr_filo];
+        sessionStorage.FK_USUARIO = 1;
+
+        if (sessionStorage.AUTOR.indexOf('Dostoiévski') >= 0) {
+                image.src = 'https://static.mundoeducacao.uol.com.br/mundoeducacao/2020/11/fiodor-dostoievski.jpg';
+            } else if (sessionStorage.AUTOR.indexOf('Sartre') >= 0) {
+                image.src = 'https://i.pinimg.com/564x/7a/00/70/7a007095018380d4168ecee2edb8f8ed.jpg';
+            } else if (sessionStorage.AUTOR.indexOf('Nietzsche') >= 0) {
+                image.src = '../assets/nietzsche.jpg';
+            } else if (sessionStorage.AUTOR.indexOf('Schopenhauer') >= 0) {
+                image.src = 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Arthur_Schopenhauer_by_J_Sch%C3%A4fer%2C_1859b.jpg';
+            } else if (sessionStorage.AUTOR.indexOf('Zenão') >= 0) {
+                image.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Paolo_Monti_-_Servizio_fotografico_%28Napoli%2C_1969%29_-_BEIC_6353768.jpg/200px-Paolo_Monti_-_Servizio_fotografico_%28Napoli%2C_1969%29_-_BEIC_6353768.jpg';
+            } else if (sessionStorage.AUTOR.indexOf('Aurélio') >= 0) {
+                image.src = 'https://upload.wikimedia.org/wikipedia/commons/5/55/Metropolitan_Marcus_Aurelius_Roman_2C_AD_%28cropped%29.jpg';
+            } else if (sessionStorage.AUTOR.indexOf('Epicteto') >= 0) {
+                image.src = '../assets/epicteto_filosofo_grego.png';
+            }
+                
+        // sessionStorage.FK_USUARIO = sessionStorage.ID_USUARIO;
+    }
+
+    function verificarFrase() {
+        // if (sessionStorage.ID_SORTEIO == undefined) {
+        if (sessionStorage.FK_USUARIO == undefined) {
+            sorte.style.display = 'flex';
+            result.style.display = 'none';            
+        } else {
+            sorte.style.display = 'none';
+            result.style.display = 'flex';
+
+            if (sessionStorage.AUTOR.indexOf('Dostoiévski') >= 0) {
+                image.src = 'https://static.mundoeducacao.uol.com.br/mundoeducacao/2020/11/fiodor-dostoievski.jpg';
+            } else if (sessionStorage.AUTOR.indexOf('Sartre') >= 0) {
+                image.src = 'https://i.pinimg.com/564x/7a/00/70/7a007095018380d4168ecee2edb8f8ed.jpg';
+            } else if (sessionStorage.AUTOR.indexOf('Nietzsche') >= 0) {
+                image.src = '../assets/nietzsche.jpg';
+            } else if (sessionStorage.AUTOR.indexOf('Schopenhauer') >= 0) {
+                image.src = 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Arthur_Schopenhauer_by_J_Sch%C3%A4fer%2C_1859b.jpg';
+            } else if (sessionStorage.AUTOR.indexOf('Zenão') >= 0) {
+                image.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Paolo_Monti_-_Servizio_fotografico_%28Napoli%2C_1969%29_-_BEIC_6353768.jpg/200px-Paolo_Monti_-_Servizio_fotografico_%28Napoli%2C_1969%29_-_BEIC_6353768.jpg';
+            } else if (sessionStorage.AUTOR.indexOf('Aurélio') >= 0) {
+                image.src = 'https://upload.wikimedia.org/wikipedia/commons/5/55/Metropolitan_Marcus_Aurelius_Roman_2C_AD_%28cropped%29.jpg';
+            } else if (sessionStorage.AUTOR.indexOf('Epicteto') >= 0) {
+                image.src = '../assets/epicteto_filosofo_grego.png';
+            }
+
+            frase.innerHTML += `<h3>"${sessionStorage.FRASE}"</h3>`;
+            frase.innerHTML += `<b>–${sessionStorage.AUTOR}</b>`;
+        }
     }
 </script>

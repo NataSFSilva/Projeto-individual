@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="../assets/icon-agoravita.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÁgoraVita | Estatisticas</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./agora.css">
+    <script src="../js/funcoes.js"></script>
+</head>
+
+<!-- validarSessao(), -->
+<body onload="" style="background-color: #000;">
+
+    <div class="janela">
+
+        <div class="header-left">
+
+            <img src="../assets/icon-agoravita.png">
+            
+            <h1>ÁgoraVita</h1>
+
+            <div class="hello">
+                <h3>Nos vemos novamente, <span id="b_usuario">usuário</span>, porém, já não és mais o mesmo...</h3>
+            </div>
+
+            <div class="btn-nav-out">
+                <a href="./feed.html">
+                    <h3>Ágora</h3>
+                </a>
+            </div>
+
+            
+            <div class="btn-nav-out">
+                <a href="./biblioteca.html">
+                    <h3>Bilioteca</h3>
+                </a>
+            </div>
+                        
+            <div class="btn-nav-out">
+                <a href="./sorteio.html">
+                        <h3>Consultar Tykhe</h3>
+                    </a>
+            </div>
+            
+            <div class="btn-nav">
+                <h3>Estatísticas</h3>
+            </div>
+
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
+            </div>
+
+        </div>
+
+        <div style="width: 436px;"></div>
+
+        <div class="div_sorteio">
+            <div class="container">
+                <div class="sorteio">
+                    <div class="artigo">                    
+                    </div>
+                    <div class="artigo">                    
+                    </div>
+                    <div class="artigo">                    
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
+
+<script>    
+    
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    function limparFormulario() {
+        document.getElementById("form_postagem").reset();
+    }
+
+    function publicar() {
+        var idUsuario = sessionStorage.ID_USUARIO;
+
+        var corpo = {
+            titulo: form_postagem.titulo.value,
+            descricao: form_postagem.descricao.value
+        }
+
+        fetch(`/avisos/publicar/${idUsuario}`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(corpo)
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
+                window.location = "/dashboard/mural.html";
+                limparFormulario();
+                finalizarAguardar();
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+
+    }
+</script>

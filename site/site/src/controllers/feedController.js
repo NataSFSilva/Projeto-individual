@@ -44,10 +44,10 @@ function listarPorUsuario(req, res) {
         );
 }
 
-function pesquisarDescricao(req, res) {
-    var descricao = req.params.descricao;
+function pesquisarTexto(req, res) {
+    var texto = req.params.texto;
 
-    feedModel.pesquisarDescricao(descricao)
+    feedModel.pesquisarTexto(texto)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -67,17 +67,17 @@ function pesquisarDescricao(req, res) {
 
 function publicar(req, res) {
     var titulo = req.body.titulo;
-    var descricao = req.body.descricao;
+    var texto = req.body.texto;
     var idUsuario = req.params.idUsuario;
 
     if (titulo == undefined) {
         res.status(400).send("O título está indefinido!");
-    } else if (descricao == undefined) {
+    } else if (texto == undefined) {
         res.status(400).send("A descrição está indefinido!");
     } else if (idUsuario == undefined) {
         res.status(403).send("O id do usuário está indefinido!");
     } else {
-        feedModel.publicar(titulo, descricao, idUsuario)
+        feedModel.publicar(titulo, texto, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -93,50 +93,10 @@ function publicar(req, res) {
     }
 }
 
-function editar(req, res) {
-    var novaDescricao = req.body.descricao;
-    var idFeed = req.params.idFeed;
-
-    feedModel.editar(novaDescricao, idFeed)
-        .then(
-            function (resultado) {
-                res.json(resultado);
-            }
-        )
-        .catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-
-}
-
-function deletar(req, res) {
-    var idFeed = req.params.idFeed;
-
-    feedModel.deletar(idFeed)
-        .then(
-            function (resultado) {
-                res.json(resultado);
-            }
-        )
-        .catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao deletar o post: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
-
 module.exports = {
     testar,
     listar,
     listarPorUsuario,
-    pesquisarDescricao,
-    publicar,
-    editar,
-    deletar
+    pesquisarTexto,
+    publicar
 }

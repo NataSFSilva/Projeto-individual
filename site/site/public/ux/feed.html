@@ -21,6 +21,8 @@
 
         <div class="header-left">
 
+            <img src="../assets/icon-agoravita.png">
+            
             <h1>ÁgoraVita</h1>
 
             <div class="hello">
@@ -114,7 +116,7 @@
             texto: form_postagem.texto.value
         }
 
-        fetch(`/avisos/publicar/${idUsuario}`, {
+        fetch(`/feed/publicar/${idUsuario}`, {
             method: "post",
             headers: {
                 "Content-Type": "application/json"
@@ -140,7 +142,6 @@
         });
 
         return false;
-
     }
 
     function atualizarFeed() {

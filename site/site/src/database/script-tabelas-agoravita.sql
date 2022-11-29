@@ -21,7 +21,8 @@ create table publicacao (
 create table sorteioFrases (
 	id int auto_increment,
     fkUsuario int,
-    dtSorteio datetime,
+    frase varchar(170),
+    autor varchar(60),
     foreign key (fkUsuario) references usuario(id),
     primary key (id, fkUsuario)
 );
