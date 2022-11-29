@@ -77,6 +77,5 @@ function insertSorteio(req, res) {
 module.exports = {
     verificarSorteio,
     insertSorteio,
-    testar,
-    req
+    testar
 }

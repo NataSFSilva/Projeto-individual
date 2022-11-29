@@ -161,7 +161,7 @@
     }
 
     function mostrarSorte() {
-        sessionStorage.clear();
+        // sessionStorage.clear();
         sorte.style.display = 'none';
         result.style.display = 'flex';
 
@@ -192,9 +192,7 @@
             } else if (sessionStorage.AUTOR.indexOf('Epicteto') >= 0) {
                 image.src = '../assets/epicteto_filosofo_grego.png';
             }
-                
-        // sessionStorage.FK_USUARIO = sessionStorage.ID_USUARIO;
-    }
+        }
 
     function verificarFrase() {
         // if (sessionStorage.ID_SORTEIO == undefined) {
