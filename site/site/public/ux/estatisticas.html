@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ÁgoraVita | Estatisticas</title>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="./agora.css">
     <script src="../js/funcoes.js"></script>
@@ -62,11 +63,14 @@
         <div class="div_sorteio">
             <div class="container">
                 <div class="sorteio">
-                    <div class="artigo">                    
+                    <div class="artigo">
+                        <canvas id="myChart"></canvas>
                     </div>
-                    <div class="artigo">                    
+                    <div class="artigo">
+                        <canvas id="myChart"></canvas>
                     </div>
-                    <div class="artigo">                    
+                    <div class="artigo">
+                        <canvas id="myChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -85,44 +89,25 @@
     
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    function limparFormulario() {
-        document.getElementById("form_postagem").reset();
-    }
-
-    function publicar() {
-        var idUsuario = sessionStorage.ID_USUARIO;
-
-        var corpo = {
-            titulo: form_postagem.titulo.value,
-            descricao: form_postagem.descricao.value
+    const ctx = document.getElementById('myChart');
+    
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: 'Usuários registrados',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1 
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
         }
+      }
+    });
 
-        fetch(`/avisos/publicar/${idUsuario}`, {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(corpo)
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-                window.location = "/dashboard/mural.html";
-                limparFormulario();
-                finalizarAguardar();
-            } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
-            } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-        });
-
-        return false;
-
-    }
 </script>

@@ -64,7 +64,7 @@
                 <div class="sorteio" id="sorte">
                 <img src="../assets/GreekMyth-fortuna.png" style="width: 200px;">
                 <h3>A deusa Tykhe, a sorte, seleciona a ti palavras de inspiração:</h3>
-                    <button class="fortuna" onclick="mostrarSorte()">Sortear frase do dia</button>
+                    <button class="fortuna" onclick="insertSorteio()">Sortear frase do dia</button>
                 </div>
                 <div class="resultado" id="result">
                     <img src="" id="image" width="170px" style="border-bottom: 3px solid #f00; border-right: 3px solid #f00;">
@@ -160,7 +160,7 @@
             ]
     }
 
-    function mostrarSorte() {
+    function insertSorteio() {
         // sessionStorage.clear();
         sorte.style.display = 'none';
         result.style.display = 'flex';

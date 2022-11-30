@@ -32,6 +32,10 @@ body {
   margin: 0;
 }
 
+#form_postagem button {
+  color: #000;
+}
+
 .dash-right .postagens .div-form label {
   width: 100%;
 }
@@ -54,7 +58,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  border-bottom: 3px solid #e6005a;
+  border-bottom: 3px solid #f00;
   padding: 20px;
 }
 
@@ -67,7 +71,7 @@ body {
 }
 
 .div-results .feed-container {
-  background-color: #212124;
+  background-color: #000;
   border-radius: 5px;
   margin-bottom: 80px;
 }
@@ -257,6 +261,16 @@ body {
   box-shadow: 0 0 100px 25px #f00;
 }
 
+.sorteio .fortuna {
+  color: #000;
+  background-color: #F00;
+  height: 45px;
+  width: 125px;
+  border-radius: 10px;
+  align-self: center;
+  cursor: pointer;
+}
+
 
 .resultado h3 {
   color: #fff;
@@ -289,22 +303,18 @@ body {
 }
 
 .artigo {
-  display: flex;
   width: 100%;
-  height: 135px;
   flex-direction: column;
   align-items: center;
+  color: #fff;
   border-bottom: 3px solid #f00;
   border-right: 3px solid #f00;
   margin-bottom: 10px;
 }
 
-.sorteio .fortuna {
-  color: #000;
-  background-color: #F00;
-  height: 45px;
-  width: 125px;
-  border-radius: 10px;
-  align-self: center;
-  cursor: pointer;
+.artigo a {
+  text-decoration: none;
+  font-weight: lighter;
+  color: #fff;
+  text-shadow: 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000, 0em 0em 0.2em #ff0000;
 }
