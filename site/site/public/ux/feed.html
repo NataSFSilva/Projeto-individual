@@ -13,9 +13,7 @@
     <script src="../js/funcoes.js"></script>
 </head>
 
-<!-- validarSessao(),  -->
-
-<body onload="atualizarFeed()" style="background-color: #000;">
+<body onload="validarSessao(), atualizarFeed()" style="background-color: #000;">
 
     <div class="janela">
 
@@ -173,7 +171,7 @@
                         var divButtons = document.createElement("div");
 
 
-                        spanID.innerHTML = "ID: <b>" + publicacao.idFeed + "</b>";
+                        spanID.innerHTML = "ID: <b>" + (i + 1) + "</b>";
                         spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
                         divTexto.innerHTML = "Texto: <b>" + publicacao.texto + "</b>";

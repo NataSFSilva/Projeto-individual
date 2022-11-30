@@ -195,7 +195,20 @@
         }
 
     function verificarFrase() {
-        // if (sessionStorage.ID_SORTEIO == undefined) {
+        fetch("/sorteio/verificarSorteio", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then
+        
         if (sessionStorage.FK_USUARIO == undefined) {
             sorte.style.display = 'flex';
             result.style.display = 'none';            

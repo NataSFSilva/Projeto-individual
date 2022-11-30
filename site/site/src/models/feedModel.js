@@ -4,7 +4,7 @@ function listar() {
     console.log("ACESSEI O FEED  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
         SELECT 
-            p.id AS idPublicacao,
+            id AS idPublicacao,
             p.titulo,
             p.texto,
             p.fkUsuario,
@@ -24,7 +24,7 @@ function pesquisarTexto(texto) {
     console.log("ACESSEI O FEED MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function pesquisarTexto()");
     var instrucao = `
         SELECT 
-            p.id AS idPublicacao,
+            id AS idPublicacao,
             p.titulo,
             p.texto,
             p.fkUsuario,
@@ -45,7 +45,7 @@ function listarPorUsuario(idUsuario) {
     console.log("ACESSEI O FEED MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarPorUsuario()");
     var instrucao = `
         SELECT 
-            p.id AS idPublicacao,
+            id AS idPublicacao,
             p.titulo,
             p.texto,
             p.fkUsuario,
@@ -63,7 +63,7 @@ function listarPorUsuario(idUsuario) {
 }
 
 function publicar(titulo, texto, idUsuario) {
-    console.log("ACESSEI O FEED MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ", titulo, descricao, idUsuario);
+    console.log("ACESSEI O FEED MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ", titulo, texto, idUsuario);
     var instrucao = `
         INSERT INTO publicacao (titulo, texto, fkUsuario) VALUES ('${titulo}', '${texto}', ${idUsuario});
     `;

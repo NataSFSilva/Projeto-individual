@@ -15,7 +15,7 @@ router.get("/listar/:idUsuario", function (req, res) {
     feedController.listarPorUsuario(req, res);
 });
 
-router.get("/pesquisar/:descricao", function (req, res) {
+router.get("/pesquisar/:texto", function (req, res) {
     feedController.pesquisarTexto(req, res);
 });
 
