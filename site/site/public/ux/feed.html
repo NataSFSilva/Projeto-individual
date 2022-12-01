@@ -43,12 +43,6 @@
                     <h3>Consultar Tykhe</h3>
                 </a>
             </div>
-            
-            <div class="btn-nav-out">
-                <a href="./estatisticas.html">
-                    <h3>Estatísticas</h3>
-                </a>
-            </div>
 
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
@@ -67,7 +61,7 @@
                                 <h3>Título:</h3>
                                 <input  class="feed_text" name="titulo" id="titulo" maxlength="100" type="text">
                             </label>
-                            <br>
+                            <br>    
                             <label>
                                 <textarea class="feed_text" name="texto" id="textarea_texto" maxlength="250" rows="5" placeholder="Seu texto(máximo de 250 caracteres)"></textarea>
                             </label>
@@ -159,10 +153,9 @@
 
                     var feed = document.getElementById("feed_container");
                     feed.innerHTML = "";
-                    for (let i = 0; i < resposta.length; i++) {
+                    for (let index = 0; index < resposta.length; index++) {
                         var publicacao = resposta[i];
 
-                        // criando e manipulando elementos do HTML via JavaScript
                         var divPublicacao = document.createElement("div");
                         var spanID = document.createElement("span");
                         var spanTitulo = document.createElement("span");
@@ -171,7 +164,7 @@
                         var divButtons = document.createElement("div");
 
 
-                        spanID.innerHTML = "ID: <b>" + (i + 1) + "</b>";
+                        spanID.innerHTML = "ID: <b>" + publicacao.idPub + "</b>";
                         spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
                         divTexto.innerHTML = "Texto: <b>" + publicacao.texto + "</b>";

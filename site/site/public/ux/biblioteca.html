@@ -13,9 +13,7 @@
     <script src="../js/funcoes.js"></script>
 </head>
 
-<!-- validarSessao(), -->
-
-<body onload="atualizarFeed()" style="background-color: #000;">
+<body onload="validarSessao()" style="background-color: #000;">
 
     <div class="janela">
 
@@ -45,12 +43,6 @@
                     <h3>Consultar Tykhe</h3>
                 </a>
             </div>
-            
-            <div class="btn-nav-out">
-                <a href="./estatisticas.html">
-                    <h3>Estatísticas</h3>
-                </a>
-            </div>
 
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
@@ -64,25 +56,29 @@
                 <div class="container">
                     <div class="artigo">
                         <h2>Amor Fati</h2>
-                        <p><i>Amor Fati</i> é um conceito que Nietzsche criou baseando-se em preceitos do estoicismo, na tradução literal do Latim, significa "Amor aos fatos". <i>Amor Fati</i> é a aceitação do caos, a compreensão de que os fatos são apenas fatos e que não podemos mudá-los, são verdades que acontecem intrinsecamente alheias à nossa vontade e, quanto mais cedo chegamos a essa compreensão, a vida pode se tornar mais leve.</p>
+                        <p><i>Amor Fati</i> é um conceito que Nietzsche criou baseando-se em preceitos do estoicismo, na tradução literal do Latim, significa "Amor ao Destino" ou "Amor aos fatos". <i>Amor Fati</i> é a aceitação do caos, a compreensão de que os fatos são apenas fatos e que não podemos mudá-los, são verdades que acontecem intrinsecamente alheias à nossa vontade e, quanto mais cedo chegamos a essa compreensão, a vida pode se tornar mais leve.</p>
                         <a href="">#niilismo</a> <a href="">#nietzsche</a>
                     </div>
                     <div class="artigo">
                         <h2>O Eu transcendental</h2>
                         <p>Sartre define transcendência como tudo aquilo que está além da nossa compreensão, logo, tudo é transcendente. Quando olhamos em volta, o nosso subconciente procura por instinto padrões e faz inúmeras rotulações, ao direcionar nossa atenção a algum objeto específico e tentar investigar o que é aquilo de fato, nunca iremos ter uma visão completa daquele objeto, dado que a nossa mente não é capaz de enxergar diversas outras lentes que ocorrem ao mesmo tempo em nosssa volta. </p>
-                        <a href="">#niilismo</a> <a href="">#nietzsche</a>
+                        <a href="">#existencialismo</a> <a href="">#sartre</a>
                     </div>
                     <div class="artigo">
+                        <h2>Carpe Diem</h2>
+                        <p>Provém do ditado em latim de uma das Odes de Horácio (65 a.C. - 8 a.C.): "Carde diem quam minimum credula postero", que numa tradução livre fica "Tenha um bom dia e confia o mínimo no teu amanhã". O conceito resume-se em, ao alegar que quando temos plena conciência que este pode ser o nosso último dia em vida, levamos ela com mais suavidade, pensando melhor em momentos de grande agitação, não se zangando desnecessáriamente e nem exagerando na mágoa ou rancor.</p>
+                        <a href="">#estoicismo</a><a href=""></a>
+                    </div>
+                    <div class="artigo">
+                        <h2>Memento Mori</h2>
+                        <p>Expressão em latim que signica "Lembre-se da morte" é um conceito estóic, não para assombrar, mas para iluminar a vida, pois, lembrando que somos passageiros e que nosso tempo pode ser curto, aproiveita-se melhor o que a vida proporciona.</p>
+                        <a href="">#estoicismo</a>
                     </div>
                 </div>
     
             </div>
         </div>
     </div>
-
-
-
-
 </body>
 
 </html>
@@ -91,165 +87,5 @@
     
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    function limparFormulario() {
-        document.getElementById("form_postagem").reset();
-    }
-
-    function publicar() {
-        var idUsuario = sessionStorage.ID_USUARIO;
-
-        var corpo = {
-            titulo: form_postagem.titulo.value,
-            descricao: form_postagem.descricao.value
-        }
-
-        fetch(`/avisos/publicar/${idUsuario}`, {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(corpo)
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-                window.location = "/dashboard/mural.html";
-                limparFormulario();
-                finalizarAguardar();
-            } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
-            } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-        });
-
-        return false;
-
-    }
-
-    function editar(idAviso) {
-        sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
-        console.log("cliquei em editar - " + idAviso);
-        window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
-        window.location = "/dashboard/edicao-aviso.html"
-
-    }
-
-    function deletar(idAviso) {
-        console.log("Criar função de apagar post escolhido - ID" + idAviso);
-        fetch(`/avisos/deletar/${idAviso}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(function (resposta) {
-
-            if (resposta.ok) {
-                window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                window.location = "/dashboard/mural.html"
-            } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
-            } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
-    }
-
-    function atualizarFeed() {
-        aguardar();
-        fetch("/avisos/listar").then(function (resposta) {
-            if (resposta.ok) {
-                if (resposta.status == 204) {
-                    var feed = document.getElementById("feed_container");
-                    var mensagem = document.createElement("span");
-                    mensagem.innerHTML = "Nenhum resultado encontrado."
-                    feed.appendChild(mensagem);
-                    throw "Nenhum resultado encontrado!!";
-                }
-
-                resposta.json().then(function (resposta) {
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
-
-                    var feed = document.getElementById("feed_container");
-                    feed.innerHTML = "";
-                    for (let i = 0; i < resposta.length; i++) {
-                        var publicacao = resposta[i];
-
-                        // criando e manipulando elementos do HTML via JavaScript
-                        var divPublicacao = document.createElement("div");
-                        var spanID = document.createElement("span");
-                        var spanTitulo = document.createElement("span");
-                        var spanNome = document.createElement("span");
-                        var divDescricao = document.createElement("div");
-                        var divButtons = document.createElement("div");
-                        var btnEditar = document.createElement("button");
-                        var btnDeletar = document.createElement("button");
-
-
-                        spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
-                        spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
-                        spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
-                        divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
-                        btnEditar.innerHTML = "Editar";
-                        btnDeletar.innerHTML = "Deletar";
-
-                        divPublicacao.className = "publicacao";
-                        spanTitulo.id = "inputNumero" + publicacao.idAviso;
-                        spanNome.className = "publicacao-nome";
-                        spanTitulo.className = "publicacao-titulo";
-                        divDescricao.className = "publicacao-descricao";
-
-                        divButtons.className = "div-buttons"
-
-                        btnEditar.className = "publicacao-btn-editar"
-                        btnEditar.id = "btnEditar" + publicacao.idAviso;
-                        btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
-
-                        btnDeletar.className = "publicacao-btn-editar"
-                        btnDeletar.id = "btnDeletar" + publicacao.idAviso;
-                        btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
-
-                        divPublicacao.appendChild(spanID);
-                        divPublicacao.appendChild(spanNome);
-                        divPublicacao.appendChild(spanTitulo);
-                        divPublicacao.appendChild(divDescricao);
-                        divPublicacao.appendChild(divButtons);
-                        divButtons.appendChild(btnEditar);
-                        divButtons.appendChild(btnDeletar);
-                        feed.appendChild(divPublicacao);
-                    }
-
-                    finalizarAguardar();
-                });
-            } else {
-                throw ('Houve um erro na API!');
-            }
-        }).catch(function (resposta) {
-            console.error(resposta);
-            finalizarAguardar();
-        });
-    }
-
-    function testar() {
-        aguardar();
-
-        var formulario = new URLSearchParams(new FormData(document.getElementById("form_postagem")));
-
-        var divResultado = document.getElementById("div_feed");
-
-        divResultado.appendChild(document.createTextNode(formulario.get("descricao")));
-        divResultado.innerHTML = formulario.get("descricao");
-
-        finalizarAguardar();
-
-        return false;
-    }
-
+    
 </script>

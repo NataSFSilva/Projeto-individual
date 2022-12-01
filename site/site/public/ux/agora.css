@@ -226,17 +226,6 @@ body {
   box-shadow: 0 0 100px 25px #f00;
 }
 
-#frase {
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  margin-left: 20px;
-}
-
-#frase b {
-  text-align: end;
-}
-
 .sorteio h3 {
   color: #fff;
 }
@@ -275,6 +264,17 @@ body {
 .resultado h3 {
   color: #fff;
   text-align: center;
+}
+
+#fraseExibicao {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+#fraseExibicao b {
+  text-align: end;
 }
 
 /* biblioteca */

@@ -13,8 +13,7 @@
     <script src="../js/funcoes.js"></script>
 </head>
 
-<!-- validarSessao(), -->
-<body onload="verificarFrase()" style="background-color: #000;">
+<body onload="validarSessao(), verificarFrase()" style="background-color: #000;">
 
     <div class="janela">
 
@@ -44,12 +43,6 @@
             <div class="btn-nav">
                     <h3>Consultar Tykhe</h3>
             </div>
-            
-            <div class="btn-nav-out">
-                <a href="./estatisticas.html">
-                    <h3>Estatísticas</h3>
-                </a>
-            </div>
 
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
@@ -68,7 +61,7 @@
                 </div>
                 <div class="resultado" id="result">
                     <img src="" id="image" width="170px" style="border-bottom: 3px solid #f00; border-right: 3px solid #f00;">
-                    <span id="frase">
+                    <span id="fraseExibicao">
                     </span>
                 </div>
             </div>
@@ -86,48 +79,6 @@
 <script>    
     
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-
-    function limparFormulario() {
-        document.getElementById("form_postagem").reset();
-    }
-
-    function publicar() {
-        // sessionStorage.FK_USUARIO = 
-
-        var corpo = {
-            titulo: form_postagem.titulo.value,
-            descricao: form_postagem.descricao.value
-        }
-
-        fetch(`/feed/publicar/${idUsuario}`, {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(corpo)
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-                window.location = "/dashboard/mural.html";
-                limparFormulario();
-                finalizarAguardar();
-            } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
-            } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-        });
-
-        return false;
-
-    }
-
     
     var frases = {
         frase: [
@@ -167,15 +118,11 @@
 
         var mr_filo = Number((Math.random() * 11).toFixed(0));
 
-        frase.innerHTML = `<h3>"${frases.frase[mr_filo]}"</h3><b>–${frases.autor[mr_filo]}</b>`;
+        fraseExibicao.innerHTML = `<h3>"${frases.frase[mr_filo]}"</h3><b>–${frases.autor[mr_filo]}</b>`;
 
         sessionStorage.FK_USUARIO = sessionStorage.ID_USUARIO;
         sessionStorage.FRASE = frases.frase[mr_filo];
         sessionStorage.AUTOR = frases.autor[mr_filo];
-
-        var fkUsuarioServer = sessionStorage.FK_USUARIO;
-        var fraseServer = sessionStorage.FRASE;
-        var autorServer = sessionStorage.AUTOR;
 
         if (sessionStorage.AUTOR.indexOf('Dostoiévski') >= 0) {
                 image.src = 'https://static.mundoeducacao.uol.com.br/mundoeducacao/2020/11/fiodor-dostoievski.jpg';
@@ -192,48 +139,82 @@
             } else if (sessionStorage.AUTOR.indexOf('Epicteto') >= 0) {
                 image.src = '../assets/epicteto_filosofo_grego.png';
             }
-        }
 
-    function verificarFrase() {
-        fetch("/sorteio/verificarSorteio", {
-            method: "POST",
+        registro();
+    }
+
+    function registro() {
+        aguardar();
+        var fkUser = sessionStorage.FK_USUARIO;
+
+        var corpo = {
+            frase: sessionStorage.FRASE,
+            autor: sessionStorage.AUTOR
+        };
+
+        fetch(`/sorteio/registrar/${fkUser}`, {
+            method: "post",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then
-        
-        if (sessionStorage.FK_USUARIO == undefined) {
-            sorte.style.display = 'flex';
-            result.style.display = 'none';            
-        } else {
-            sorte.style.display = 'none';
-            result.style.display = 'flex';
+            body: JSON.stringify(corpo)
+        }).then(function (resposta) {
 
-            if (sessionStorage.AUTOR.indexOf('Dostoiévski') >= 0) {
-                image.src = 'https://static.mundoeducacao.uol.com.br/mundoeducacao/2020/11/fiodor-dostoievski.jpg';
-            } else if (sessionStorage.AUTOR.indexOf('Sartre') >= 0) {
-                image.src = 'https://i.pinimg.com/564x/7a/00/70/7a007095018380d4168ecee2edb8f8ed.jpg';
-            } else if (sessionStorage.AUTOR.indexOf('Nietzsche') >= 0) {
-                image.src = '../assets/nietzsche.jpg';
-            } else if (sessionStorage.AUTOR.indexOf('Schopenhauer') >= 0) {
-                image.src = 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Arthur_Schopenhauer_by_J_Sch%C3%A4fer%2C_1859b.jpg';
-            } else if (sessionStorage.AUTOR.indexOf('Zenão') >= 0) {
-                image.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Paolo_Monti_-_Servizio_fotografico_%28Napoli%2C_1969%29_-_BEIC_6353768.jpg/200px-Paolo_Monti_-_Servizio_fotografico_%28Napoli%2C_1969%29_-_BEIC_6353768.jpg';
-            } else if (sessionStorage.AUTOR.indexOf('Aurélio') >= 0) {
-                image.src = 'https://upload.wikimedia.org/wikipedia/commons/5/55/Metropolitan_Marcus_Aurelius_Roman_2C_AD_%28cropped%29.jpg';
-            } else if (sessionStorage.AUTOR.indexOf('Epicteto') >= 0) {
-                image.src = '../assets/epicteto_filosofo_grego.png';
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                finalizarAguardar();
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
             }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
 
-            frase.innerHTML += `<h3>"${sessionStorage.FRASE}"</h3>`;
-            frase.innerHTML += `<b>–${sessionStorage.AUTOR}</b>`;
-        }
+        return false;
+    }
+
+    function verificarFrase() {
+        aguardar();
+        var fkUsuario = sessionStorage.ID_USUARIO;
+
+        fetch(`/sorteio/verificar/${fkUsuario}`).then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    sorte.style.display = 'flex';
+                    result.style.display = 'none';
+                    throw "Nenhum resultado encontrado!!";
+                }
+                resposta.json().then(function (resposta) {
+                        console.log("Dados recebidos: ", JSON.stringify(resposta));
+    
+                        var frase = document.getElementById("fraseExibicao");
+                        fraseExibicao.innerHTML = `<h3>"${sorteioFrase.frase}"</h3>`;
+                        fraseExibicao.innerHTML += `<b>–${sorteioFrase.autor}</b>`;
+
+                        if (sorteioFrase.autor.indexOf('Dostoiévski') >= 0) {
+                            image.src = 'https://static.mundoeducacao.uol.com.br/mundoeducacao/2020/11/fiodor-dostoievski.jpg';
+                        } else if (sorteioFrase.autor.indexOf('Sartre') >= 0) {
+                            image.src = 'https://i.pinimg.com/564x/7a/00/70/7a007095018380d4168ecee2edb8f8ed.jpg';
+                        } else if (sorteioFrase.autor.indexOf('Nietzsche') >= 0) {
+                            image.src = '../assets/nietzsche.jpg';
+                        } else if (sorteioFrase.autor.indexOf('Schopenhauer') >= 0) {
+                            image.src = 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Arthur_Schopenhauer_by_J_Sch%C3%A4fer%2C_1859b.jpg';
+                        } else if (sorteioFrase.autor.indexOf('Zenão') >= 0) {
+                            image.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Paolo_Monti_-_Servizio_fotografico_%28Napoli%2C_1969%29_-_BEIC_6353768.jpg/200px-Paolo_Monti_-_Servizio_fotografico_%28Napoli%2C_1969%29_-_BEIC_6353768.jpg';
+                        } else if (sorteioFrase.autor.indexOf('Aurélio') >= 0) {
+                            image.src = 'https://upload.wikimedia.org/wikipedia/commons/5/55/Metropolitan_Marcus_Aurelius_Roman_2C_AD_%28cropped%29.jpg';
+                        } else if (sorteioFrase.autor.indexOf('Epicteto') >= 0) {
+                            image.src = '../assets/epicteto_filosofo_grego.png';
+                        }
+                        finalizarAguardar();
+                    });
+                } else {
+                    throw ('Houve um erro na API!');
+                }
+        })
     }
 </script>

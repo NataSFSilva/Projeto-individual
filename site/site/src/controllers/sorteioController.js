@@ -1,4 +1,4 @@
-var usuarioModel = require("../models/sorteioModel");
+var sorteioModel = require("../models/sorteioModel");
 
 var sessoes = [];
 
@@ -8,43 +8,25 @@ function testar(req, res) {
 }
 
 function verificarSorteio(req, res) {
-    var fkUsuario = req.body.fkUsuarioServer;
-    var frase = req.body.fraseServer;
-    var autor = req.body.autorServer;
-
-    if (fkUsuario == undefined) {
-        res.status(400).send("Seu id está undefined!");
-    } else {
-        
-        usuarioModel.verificarSorteio(fkUsuario, frase, autor)
-            .then(
-                function (resultado) {
-                    console.log(`\nResultados encontrados: ${resultado.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
-
-                    if (resultado.length == 1) {
-                        console.log(resultado);
-                        res.json(resultado[0]);
-                    } else if (resultado.length == 0) {
-                        res.status(403).send("Frase e/ou autor inválido(s)");
-                    }
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
-
+    var fkUsuario = req.params.fkUsuario;
+    sorteioModel.verificarSorteio(fkUsuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os sorteios: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
 }
 
 function insertSorteio(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var fkUsuario = req.body.fkUsuarioServer;
-    var frase = req.body.fraseServer;
-    var autor = req.body.autorServer;
+    var frase = req.body.frase;
+    var autor = req.body.autor;
+    var fkUsuario = req.params.fkUser;
 
     // Faça as validações dos valores
     if (fkUsuario == undefined) {
